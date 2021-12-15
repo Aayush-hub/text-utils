@@ -58,19 +58,19 @@ export default function Textforms() {
     function setvalue(event){
         setText(event.target.value)
     }
-    const[text,setText] = useState("Enter your text here")
+    const[text,setText] = useState("")
     // const[mode,setdarkMode] = useState("color:white;backgroundColor:black")
     return (
         <div className='container' style={letstyle}>
         <div className="mb-3">
         <h2 className="py-4">Welcome to TextUtils</h2>
-        <div style={textstyle}><textarea className="form-control" value={text} onChange={setvalue} id="exampleFormControlTextarea1" rows="6"></textarea></div>
+        <div style={textstyle}><textarea className="form-control" value={text} placeholder='Enter your text here' onChange={setvalue} id="exampleFormControlTextarea1" rows="6"></textarea></div>
         
         </div>
-        <h7>Total no. of characters: {text.replace(/\s/g, "").length} , Total no. of words: {text.split(" ").length}</h7><br />
-        <button class="btn btn-primary my-3 " onClick={convertUp}>Convert to UpperCase</button>
-        <button class="btn btn-secondary my-3 ms-3" onClick={convertDown}>Convert to LowerCase</button>
-        <button class="btn btn-dark my-3 ms-3" onClick={darkMode}>{btnDark}</button>
+        <h7>Total no. of characters: {text.replace(/\s/g, "").length} , Total no. of words: {text.split(" ").length}, Reading Minutes: {(0.005)*text.split(" ").length}</h7><br />
+        <button className="btn btn-primary my-3 " onClick={convertUp}>Convert to UpperCase</button>
+        <button className="btn btn-secondary my-3 ms-3" onClick={convertDown}>Convert to LowerCase</button>
+        <button className="btn btn-dark my-3 ms-3" onClick={darkMode}>{btnDark}</button>
         
         </div>
         
