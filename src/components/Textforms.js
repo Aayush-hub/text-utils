@@ -3,7 +3,7 @@ import React, { useState } from "react";
 export default function Textforms() {
   const [btnDark, setbtnDark] = useState("Enable Dark Mode");
   const [textstyle, settextstyle] = useState({
-    maxWidth: "530px",
+    maxWidth: "630px",
   });
   const [letstyle, setletStyle] = useState({
     color: "black",
@@ -24,7 +24,7 @@ export default function Textforms() {
         paddingLeft: "50px",
       });
       settextstyle({
-        maxWidth: "530px",
+        maxWidth: "630px",
       });
       setbtnDark("Enable Light Mode");
     } else {
@@ -47,6 +47,9 @@ export default function Textforms() {
     let txt = text.toLowerCase();
     setText(txt);
   }
+  function clearText() {
+    setText("");
+  }
   function setvalue(event) {
     setText(event.target.value);
   }
@@ -63,6 +66,7 @@ export default function Textforms() {
         <h7>Total no. of characters: {text.replace(/\s/g, "").length} , Total no. of words: {text.length<2?text.split(" ").length-1:text.split(" ").length}, Reading Minutes: {text.length<2?0:(0.008)*text.split(" ").length}</h7><br />
         <button className="btn btn-primary my-3 " onClick={convertUp}>Convert to UpperCase</button>
         <button className="btn btn-secondary my-3 ms-3" onClick={convertDown}>Convert to LowerCase</button>
+        <button className="btn btn-primary my-3 ms-3" onClick={clearText}>Clear Text</button>
         <button className="btn btn-dark my-3 ms-3" onClick={darkMode}>{btnDark}</button>
         
         </div>
