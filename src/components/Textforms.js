@@ -64,10 +64,10 @@ export default function Textforms() {
         <div className='container' style={letstyle}>
         <div className="mb-3">
         <h2 className="py-4">Welcome to TextUtils</h2>
-        <div style={textstyle}><textarea className="form-control" value={text} placeholder='Enter your text here' onChange={setvalue} id="exampleFormControlTextarea1" rows="6"></textarea></div>
+        <div style={textstyle}><textarea className="form-control" value={text} placeholder='Enter your text here' onChange={setvalue} id="exampleFormControlTextarea1" rows="8"></textarea></div>
         
         </div>
-        <h7>Total no. of characters: {text.replace(/\s/g, "").length} , Total no. of words: {text.split(" ").length}, Reading Minutes: {(0.005)*text.split(" ").length}</h7><br />
+        <h7>Total no. of characters: {text.replace(/\s/g, "").length} , Total no. of words: {text.length<2?text.split(" ").length-1:text.split(" ").length}, Reading Minutes: {text.length<2?0:(0.008)*text.split(" ").length}</h7><br />
         <button className="btn btn-primary my-3 " onClick={convertUp}>Convert to UpperCase</button>
         <button className="btn btn-secondary my-3 ms-3" onClick={convertDown}>Convert to LowerCase</button>
         <button className="btn btn-dark my-3 ms-3" onClick={darkMode}>{btnDark}</button>
